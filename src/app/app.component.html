@@ -1,0 +1,26 @@
+<div class="app-shell">
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo">SM</div>
+      <div>
+        <div class="brand-name">Skyline Mart</div>
+        <div class="brand-tag">Everyday ecommerce with bold color.</div>
+      </div>
+    </div>
+    <nav class="nav-links">
+      @if (!(isLoggedIn$ | async)) {
+        <a routerLink="/login" routerLinkActive="active">Login</a>
+      }
+      <a routerLink="/products" routerLinkActive="active">Products</a>
+      <a routerLink="/search" routerLinkActive="active">Search</a>
+      <a routerLink="/cart" routerLinkActive="active">Cart</a>
+      @if (isLoggedIn$ | async) {
+        <a routerLink="/logout" routerLinkActive="active">Logout</a>
+      }
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <router-outlet />
+  </main>
+</div>
