@@ -1,0 +1,127 @@
+{
+  "info": {
+    "name": "SmartCart",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "gatewayUrl",
+      "value": "http://localhost:8080"
+    }
+  ],
+  "item": [
+    {
+      "name": "Auth - Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"student\",\n  \"password\": \"password\",\n  \"role\": \"USER\"\n}"
+        },
+        "url": "{{gatewayUrl}}/users/api/auth/register"
+      }
+    },
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"student\",\n  \"password\": \"password\"\n}"
+        },
+        "url": "{{gatewayUrl}}/users/api/auth/login"
+      }
+    },
+    {
+      "name": "Product - Add",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Wireless Mouse\",\n  \"description\": \"Compact USB mouse\",\n  \"price\": 499.00,\n  \"quantity\": 25\n}"
+        },
+        "url": "{{gatewayUrl}}/products/api/products"
+      }
+    },
+    {
+      "name": "Product - View All",
+      "request": {
+        "method": "GET",
+        "url": "{{gatewayUrl}}/products/api/products?sortBy=price"
+      }
+    },
+    {
+      "name": "Product - Update",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Wireless Mouse\",\n  \"description\": \"Updated compact USB mouse\",\n  \"price\": 549.00,\n  \"quantity\": 30\n}"
+        },
+        "url": "{{gatewayUrl}}/products/api/products/1"
+      }
+    },
+    {
+      "name": "Product - Delete",
+      "request": {
+        "method": "DELETE",
+        "url": "{{gatewayUrl}}/products/api/products/1"
+      }
+    },
+    {
+      "name": "Order - Place",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": 1,\n  \"productId\": 1,\n  \"quantity\": 2\n}"
+        },
+        "url": "{{gatewayUrl}}/orders/api/orders"
+      }
+    },
+    {
+      "name": "Order - All",
+      "request": {
+        "method": "GET",
+        "url": "{{gatewayUrl}}/orders/api/orders"
+      }
+    },
+    {
+      "name": "Order - User History",
+      "request": {
+        "method": "GET",
+        "url": "{{gatewayUrl}}/orders/api/orders/users/1"
+      }
+    }
+  ]
+}
