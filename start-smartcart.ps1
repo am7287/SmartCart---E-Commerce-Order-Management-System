@@ -2,6 +2,12 @@ $ErrorActionPreference = 'Stop'
 
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $env:JAVA_HOME = 'C:\Program Files\Java\jdk-21'
+$env:MYSQL_USERNAME = if ($env:MYSQL_USERNAME) { $env:MYSQL_USERNAME } else { 'root' }
+
+if (-not $env:MYSQL_PASSWORD) {
+    $env:MYSQL_PASSWORD = Read-Host 'Enter MySQL password'
+}
+
 $logDir = Join-Path $root 'logs'
 
 New-Item -ItemType Directory -Force -Path $logDir | Out-Null
