@@ -1,12 +1,14 @@
 package com.smartcart.order.service;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+
 import com.smartcart.order.client.ProductClient;
 import com.smartcart.order.dto.OrderDtos.ProductResponse;
 import com.smartcart.order.exception.ApiException;
+
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.retry.annotation.Retry;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Service;
 
 @Service
 public class CatalogService {
